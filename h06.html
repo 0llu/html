@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjutus06</title>
+    <meta name="keywords" content="HTML,CSS,HTML5,CSS3"/>
+    <meta name="author" content="Hendri Olev Serman IT-23"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+    <form id="myForm">
+        <table border="0">
+            <tr>
+                <td>Kasutajanimi:</td>
+                <td><input type="text" id="kasutajanimi" maxlength="6"></td>
+            </tr>
+            <tr>
+                <td>Kursus:</td>
+                <td><input type="text" id="kursus" maxlength="3"></td>
+            </tr>
+            <tr>
+                <td>Osakonna number:</td>
+                <td>
+                    <select id="osakonnaNumber">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Parool:</td>
+                <td><input type="password" id="parool"></td>
+            </tr>
+            <tr>
+                <td>Vali teenus:</td>
+                <td>
+                    <select id="teenus">
+                        <option value="odav">Odav 0,59€</option>
+                        <option value="keskmine">Keskmine 1,99€</option>
+                        <option value="kallis">Kallis 4,99€</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Roll:</td>
+                <td>
+                    <input type="radio" id="admin" name="roll" value="admin">
+                    <label for="admin">Admin</label><br>
+                    <input type="radio" id="moderaator" name="roll" value="moderaator">
+                    <label for="moderaator">Moderaator</label><br>
+                    <input type="radio" id="user" name="roll" value="user">
+                    <label for="user">User</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Nõustun tingimustega:</td>
+                <td><input type="checkbox" id="tingimused"></td>
+            </tr>
+            <tr>
+                <td>Enesetutvustus:</td>
+                <td><textarea id="enesetutvustus" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="clearFields()">Tühjenda väljad</button>
+                    <button type="submit">Saada</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function clearFields() {
+            document.getElementById("myForm").reset();
+        }
+    </script>
+</body>
+</html>
