@@ -3,37 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harjutus04</title>
+    <title>Paljas Kapsas blog</title>
     <meta name="keywords" content="HTML,CSS,HTML5,CSS3"/>
     <meta name="author" content="Hendri Olev Serman IT-23"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <style>
+        .header {
+            display: flex;
+            align-items: center;
+        }
+        .header img {
+            width: 200px;
+            height: 160px;
+        }
+        .header h1 {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        nav {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+        }
+        hr {
+            border: 1px solid black;
+        }
+        .posts {
+            display: flex;
+            justify-content: space-between;
+        }
+        .post {
+            width: 30%;
+            text-align: center;
+        }
+        .post img {
+            width: 100%;
+        }
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .read-more {
+            text-align: left;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
-        <h1>Serman.ee</h1>
-        <nav>
-            <a href="index.html">Avaleht</a> |
-            <a href="Teenused.html">Teenused</a> |
-            <a href="kontakt.html">kontakt</a>
-        </nav>
+        <img src="kapsas.jpg" alt="Kapsas">
+        <h1>Paljas Kapsas blog</h1>
     </div>
-    <div class="content">
-        <h2>Tere tulemast!</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec pur
-            us. Donec in ligula ut nherhtrhwehjdjtrj
-            frtjtjdfrtkidrtisretiutrskjirtujise5ti
-            jstiusretjiusrtjytkiesy6isrtki5ewsiuiw6isrti
-            6ruisjtuwsr5usrimgayjytrsuuisrustrikrsius
-            ursuy5syu5usr65u5ihateniggerstrjstusrtujsrtu
-            utrsusrtusrtusrtusrtusrtusrtusrtusrtusrt
-        </p>
-
+    <hr>
+    <nav>
+        <a href="index.html">Avaleht</a> |
+        <a href="teenused.html">Teenused</a> |
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <hr>
+    <div class="posts">
+        <div class="post">
+            <h2>Postitus 1</h2>
+            <img src="postitus1.jpg" alt="Postitus 1">
+            <div class="social-icons">
+                <img src="fb.png" alt="Facebook">
+                <img src="twitter.png" alt="Twitter">
+                <img src="linkedin.png" alt="LinkedIn">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus.</p>
+            <div class="read-more">
+                <a href="#">Loe edasi</a>
+            </div>
+        </div>
+        <div class="post">
+            <h2>Postitus 2</h2>
+            <img src="postitus2.jpg" alt="Postitus 2">
+            <div class="social-icons">
+                <img src="fb.png" alt="Facebook">
+                <img src="twitter.png" alt="Twitter">
+                <img src="linkedin.png" alt="LinkedIn">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus.</p>
+            <div class="read-more">
+                <a href="#">Loe edasi</a>
+            </div>
+        </div>
+        <div class="post">
+            <h2>Postitus 3</h2>
+            <img src="postitus3.jpg" alt="Postitus 3">
+            <div class="social-icons">
+                <img src="fb.png" alt="Facebook">
+                <img src="twitter.png" alt="Twitter">
+                <img src="linkedin.png" alt="LinkedIn">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus.</p>
+            <div class="read-more">
+                <a href="#">Loe edasi</a>
+            </div>
+        </div>
     </div>
+    <hr>
     <div class="footer">
-        <p>&copy; 2025 <a href=" https://serman.com" target="_blank">serman.com</a></p>
+        <p>&copy; 2025 <a href="https://serman.com" target="_blank">serman.com</a></p>
     </div>
 </body>
 </html>
