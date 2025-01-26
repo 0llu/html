@@ -5,24 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minu GitHub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Eeldatakse, et favicon.png asub repositooriumis -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-blue-600 text-white py-4">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-bold">Tere tulemast minu GitHubi lehele</h1>
-            <p class="text-lg">Siin näed minu repositooriumis olevaid faile</p>
+    <header class="bg-blue-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <h1 class="text-3xl font-bold">Minu GitHub</h1>
+            <p class="text-lg">Repositooriumi info ja failid</p>
         </div>
     </header>
 
     <main class="container mx-auto mt-8">
+        <section id="repo-info" class="bg-white p-6 shadow rounded mb-8">
+            <h2 class="text-2xl font-bold mb-4">Repositooriumi info</h2>
+            <div id="repo-details" class="text-gray-700">
+                <p class="mb-2"><strong>Nimi:</strong> <span id="repo-name"></span></p>
+                <p class="mb-2"><strong>Kirjeldus:</strong> <span id="repo-description"></span></p>
+                <p class="mb-2"><strong>Viimane uuendus:</strong> <span id="repo-updated"></span></p>
+            </div>
+        </section>
+
         <section id="repo-files" class="bg-white p-6 shadow rounded">
             <h2 class="text-2xl font-bold mb-4">Repositooriumi failid</h2>
-            <ul id="file-list" class="list-disc pl-5"></ul>
+            <ul id="file-list" class="space-y-2">
+                <!-- Failid lisatakse siia -->
+            </ul>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-4 mt-8">
+    <footer class="bg-gray-800 text-white py-6 mt-8">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Minu GitHub. Kõik õigused kaitstud.</p>
         </div>
@@ -32,22 +44,45 @@
         const username = '0llu'; // Sisesta oma GitHubi kasutajanimi
         const repoName = 'html'; // Sisesta oma repositooriumi nimi
 
+        async function fetchRepoInfo() {
+            try {
+                const response = await axios.get(`https://api.github.com/repos/${username}/${repoName}`);
+                const repoData = response.data;
+
+                document.getElementById('repo-name').textContent = repoData.name;
+                document.getElementById('repo-description').textContent = repoData.description || 'Kirjeldus puudub';
+                document.getElementById('repo-updated').textContent = new Date(repoData.updated_at).toLocaleString('et-EE');
+            } catch (error) {
+                console.error('Error fetching repo info:', error);
+            }
+        }
+
         async function fetchRepoFiles() {
             try {
                 const response = await axios.get(`https://api.github.com/repos/${username}/${repoName}/contents`);
                 const files = response.data;
+
+                files.sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
+
                 const fileList = document.getElementById('file-list');
+                fileList.innerHTML = '';
 
                 files.forEach(file => {
                     const listItem = document.createElement('li');
-                    const fileLink = document.createElement('a');
+                    listItem.classList.add('bg-gray-100', 'p-4', 'rounded', 'shadow-sm', 'hover:shadow-md', 'transition-shadow');
 
+                    const fileLink = document.createElement('a');
                     fileLink.href = file.download_url ? file.download_url : file.html_url;
                     fileLink.textContent = file.name;
                     fileLink.target = '_blank';
-                    fileLink.classList.add('text-blue-500', 'hover:underline');
+                    fileLink.classList.add('text-blue-500', 'hover:underline', 'font-medium');
+
+                    const fileType = document.createElement('span');
+                    fileType.textContent = ` (${file.type === 'dir' ? 'Kaust' : 'Fail'})`;
+                    fileType.classList.add('text-gray-600', 'ml-2', 'italic');
 
                     listItem.appendChild(fileLink);
+                    listItem.appendChild(fileType);
                     fileList.appendChild(listItem);
                 });
             } catch (error) {
@@ -55,6 +90,7 @@
             }
         }
 
+        fetchRepoInfo();
         fetchRepoFiles();
     </script>
 </body>
