@@ -29,8 +29,8 @@
     </footer>
 
     <script>
-        const username = 'SINUNIMI'; // Sisesta oma GitHubi kasutajanimi
-        const repoName = 'REPOSITORY_NIMI'; // Sisesta oma repositooriumi nimi
+        const username = '0llu'; // Sisesta oma GitHubi kasutajanimi
+        const repoName = 'html'; // Sisesta oma repositooriumi nimi
 
         async function fetchRepoFiles() {
             try {
@@ -42,7 +42,7 @@
                     const listItem = document.createElement('li');
                     const fileLink = document.createElement('a');
 
-                    fileLink.href = file.html_url;
+                    fileLink.href = file.download_url ? file.download_url : file.html_url;
                     fileLink.textContent = file.name;
                     fileLink.target = '_blank';
                     fileLink.classList.add('text-blue-500', 'hover:underline');
