@@ -59,49 +59,50 @@
     </footer>
 
     <script>
-        const username = location.pathname.split('/')[1] || '0llu'; // Automaatne kasutajanime tuvastus URL-ist
-        const repoName = location.pathname.split('/')[2] || 'html'; // Automaatne repositooriumi nime tuvastus
-
+        const username = '0llu'; // Sisesta oma GitHubi kasutajanimi
+        const repoName = 'html'; // Sisesta oma repositooriumi nimi
+    
         async function fetchRepoInfo() {
             try {
                 const response = await axios.get(`https://api.github.com/repos/${username}/${repoName}`);
                 const repoData = response.data;
-
-                document.getElementById('repo-name').textContent = repoData.name;
+    
+                document.getElementById('repo-name').textContent = repoData.name || 'Nimi puudub';
                 document.getElementById('repo-description').textContent = repoData.description || 'Kirjeldus puudub';
                 document.getElementById('repo-updated').textContent = new Date(repoData.updated_at).toLocaleString('et-EE');
             } catch (error) {
                 console.error('Error fetching repo info:', error);
+                alert('Viga repositooriumi info toomisel! Kontrolli kasutajanime ja repositooriumi nime.');
             }
         }
-
+    
         async function fetchRepoFiles() {
             try {
                 const response = await axios.get(`https://api.github.com/repos/${username}/${repoName}/contents`);
                 const files = response.data;
-
+    
                 const htmlList = document.getElementById('html-files');
                 const cssList = document.getElementById('css-files');
                 const imageList = document.getElementById('image-files');
-
+    
                 htmlList.innerHTML = '';
                 cssList.innerHTML = '';
                 imageList.innerHTML = '';
-
+    
                 files.sort((a, b) => a.name.localeCompare(b.name));
-
+    
                 files.forEach(file => {
                     const listItem = document.createElement('li');
                     listItem.classList.add('bg-gray-100', 'p-4', 'rounded', 'shadow-sm', 'hover:shadow-md', 'transition-shadow');
-
+    
                     const fileLink = document.createElement('a');
                     fileLink.href = file.download_url ? file.download_url : file.html_url;
                     fileLink.textContent = file.name;
                     fileLink.target = '_blank';
                     fileLink.classList.add('text-blue-500', 'hover:underline', 'font-medium');
-
+    
                     listItem.appendChild(fileLink);
-
+    
                     if (file.name.endsWith('.html')) {
                         htmlList.appendChild(listItem);
                     } else if (file.name.endsWith('.css')) {
@@ -112,9 +113,10 @@
                 });
             } catch (error) {
                 console.error('Error fetching repo files:', error);
+                alert('Viga failide toomisel! Kontrolli kasutajanime ja repositooriumi nime.');
             }
         }
-
+    
         fetchRepoInfo();
         fetchRepoFiles();
     </script>
