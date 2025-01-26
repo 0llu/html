@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minu GitHub</title>
+    <title>Hserman GitHub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png"> <!-- Eeldatakse, et favicon.png asub repositooriumis -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -11,8 +11,8 @@
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-blue-600 text-white py-6 shadow-lg">
         <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-3xl font-bold">Minu GitHub</h1>
-            <p class="text-lg">Repositooriumi info ja failid</p>
+            <h1 class="text-3xl font-bold">Hserman GitHub</h1>
+            <p class="text-lg">Repositoorium ja failid</p>
         </div>
     </header>
 
@@ -29,32 +29,38 @@
         <section id="repo-files" class="bg-white p-6 shadow rounded">
             <h2 class="text-2xl font-bold mb-4">Repositooriumi failid</h2>
 
-            <h3 class="text-xl font-semibold mb-2">HTML failid</h3>
-            <ul id="html-files" class="space-y-2 mb-6">
-                <!-- HTML failid lisatakse siia -->
-            </ul>
-
-            <h3 class="text-xl font-semibold mb-2">CSS failid</h3>
-            <ul id="css-files" class="space-y-2 mb-6">
-                <!-- CSS failid lisatakse siia -->
-            </ul>
-
-            <h3 class="text-xl font-semibold mb-2">Pildid</h3>
-            <ul id="image-files" class="space-y-2">
-                <!-- Pildid lisatakse siia -->
-            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">HTML failid</h3>
+                    <ul id="html-files" class="space-y-2">
+                        <!-- HTML failid lisatakse siia -->
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">CSS failid</h3>
+                    <ul id="css-files" class="space-y-2">
+                        <!-- CSS failid lisatakse siia -->
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Pildid</h3>
+                    <ul id="image-files" class="space-y-2">
+                        <!-- Pildid lisatakse siia -->
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="bg-gray-800 text-white py-6 mt-8">
         <div class="container mx-auto text-center">
-            <p>&copy; 2024 Minu GitHub. Kõik õigused kaitstud.</p>
+            <p>&copy; 2024 Hserman GitHub. Kõik õigused kaitstud.</p>
         </div>
     </footer>
 
     <script>
-        const username = 'SINUNIMI'; // Sisesta oma GitHubi kasutajanimi
-        const repoName = 'REPOSITORY_NIMI'; // Sisesta oma repositooriumi nimi
+        const username = '0llu'; // Sisesta oma GitHubi kasutajanimi
+        const repoName = 'html'; // Sisesta oma repositooriumi nimi
 
         async function fetchRepoInfo() {
             try {
@@ -96,9 +102,9 @@
 
                     listItem.appendChild(fileLink);
 
-                    if (file.name.endsWith('.html')) {
+                    if (file.name.includes('html')) {
                         htmlList.appendChild(listItem);
-                    } else if (file.name.endsWith('.css')) {
+                    } else if (file.name.includes('css')) {
                         cssList.appendChild(listItem);
                     } else if (file.name.match(/\.(png|jpe?g|gif|svg)$/)) {
                         imageList.appendChild(listItem);
