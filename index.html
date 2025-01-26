@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hserman GitHub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon-32x32.png"> <!-- Eeldatakse, et favicon.png asub repositooriumis -->
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Eeldatakse, et favicon.png asub repositooriumis -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -59,8 +59,8 @@
     </footer>
 
     <script>
-        const username = '0llu'; // Sisesta oma GitHubi kasutajanimi
-        const repoName = 'html'; // Sisesta oma repositooriumi nimi
+        const username = location.pathname.split('/')[1] || '0llu'; // Automaatne kasutajanime tuvastus URL-ist
+        const repoName = location.pathname.split('/')[2] || 'html'; // Automaatne repositooriumi nime tuvastus
 
         async function fetchRepoInfo() {
             try {
