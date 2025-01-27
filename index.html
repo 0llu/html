@@ -54,7 +54,7 @@
 
     <footer class="bg-gray-800 text-white py-6 mt-8">
         <div class="container mx-auto text-center">
-            <p>&copy; 2024 Hserman GitHub. Kõik õigused kaitstud.</p>
+            <p>&copy; 2025 Hserman GitHub. Kõik õigused kaitstud.</p>
         </div>
     </footer>
 
@@ -68,7 +68,7 @@
                 const repoData = response.data;
 
                 document.getElementById('repo-name').textContent = repoData.name;
-                document.getElementById('repo-description').textContent = repoData.description || 'Kirjeldus puudub';
+                document.getElementById('repo-description').textContent = repoData.description || 'Ülesanded';
                 document.getElementById('repo-updated').textContent = new Date(repoData.updated_at).toLocaleString('et-EE');
             } catch (error) {
                 console.error('Error fetching repo info:', error);
@@ -103,9 +103,9 @@
 
                     listItem.appendChild(fileLink);
 
-                    if (file.name.endsWith('.html')) {
+                    if (file.name.endsWith('html')) {
                         htmlList.appendChild(listItem);
-                    } else if (file.name.endsWith('.css')) {
+                    } else if (file.name.endsWith('css')) {
                         cssList.appendChild(listItem);
                     } else if (file.name.match(/\.(png|jpe?g|gif|svg|ico)$/)) {
                         imageList.appendChild(listItem);
