@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <title>Harjutus 06</title>
+
+    <style>
+        .jumbotron {
+            border-radius: 5px;
+            background: url('https://images.pexels.com/photos/29726820/pexels-photo-29726820/free-photo-of-woman-enjoying-nature-in-ha-giang-forest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+            color: white;
+            padding: 140px 20px;
+            text-align: center;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .breadcrumb-container {
+            background-color: #f8f9fa;
+            padding: 5px;
+            border-radius: 5px;
+            max-width: 100%;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .card {
+            border-radius: 5px;
+        }
+
+        .author-date {
+            font-size: 1.3rem;
+        }
+
+        .lead {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .badge-danger {
+            background-color: red;
+        }
+
+        .badge-warning {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-rocket"></i> Minu Blogi
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Avaleht</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blogi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="breadcrumb-container mt-3 col-md-8">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Blogi</a></li>
+                <li class="breadcrumb-item"><a href="#">Veebitehnoloogia</a></li>
+                <li class="breadcrumb-item active">Sinupostitus</li>
+            </ol>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-8">
+                <h2>Sinu Postitus</h2>
+                <p class="author-date"><small>Autor: <a href="#">Hendri Olev Serman</a></small></p>
+                <p class="author-date"><small>29.01.2025</small> <span class="badge badge-danger">css</span> <span class="badge badge-warning">bootstrap</span></p>
+                <div class="jumbotron"></div>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eveniet dolor quo dignissimos tempora neque at eaque maxime minus atque, quaerat voluptatem alias odio. Nesciunt dicta beatae nemo? Atque, illum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eveniet dolor quo dignissimos tempora neque at eaque maxime minus atque, quaerat voluptatem alias odio. Nesciunt dicta beatae nemo? Atque, illum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eveniet dolor quo dignissimos tempora neque at eaque maxime minus atque, quaerat voluptatem alias odio. Nesciunt dicta beatae nemo? Atque, illum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eveniet dolor quo dignissimos tempora neque at eaque maxime minus atque, quaerat voluptatem alias odio. Nesciunt dicta beatae nemo? Atque, illum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eveniet dolor quo dignissimos tempora neque at eaque maxime minus atque, quaerat voluptatem alias odio. Nesciunt dicta beatae nemo? Atque, illum.</p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Kategooriad
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="#">HTML</a></li>
+                                    <li><a href="#">CSS</a></li>
+                                    <li><a href="#">Bootstrap</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="#">JavaScript</a></li>
+                                    <li><a href="#">PHP</a></li>
+                                    <li><a href="#">MySQL</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Muu Info
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eveniet dolor quo dignissimos tempora neque at eaque maxime minus atque, quaerat voluptatem alias odio. Nesciunt dicta beatae nemo? Atque, illum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
